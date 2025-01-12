@@ -15878,42 +15878,15 @@ z"
           const loadingPrint = ref(false);
 
           const printReciboPdf = () => {
-            if (isValidForm()) {
+            if (!isValidForm()) {
               loadingPrint.value = true;
               printElement(
                 `
               <html lang="en">
               <style>
-								@media print {
-									body, html {
-										margin: 0 !important;
-										width: 100% !important;
-										height: 100% !important;
-										overflow: visible !important;
-									}
-									* {
-										box-sizing: border-box;
-										border: none !important;
-										margin: 0 !important;
-									}
-									@page {
-										margin:0 !important;
-									}
-								}
                 @page {
 									margin:0 !important;
                 }
-								body, html {
-									margin: 0 !important;
-									width: 100% !important;
-									height: 100% !important;
-									overflow: visible !important;
-								}
-								* {
-									box-sizing: border-box;
-									border: none !important;
-									margin: 0 !important;
-								}
                 p{
                   margin: 0;
                   padding: 0;
