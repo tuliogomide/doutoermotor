@@ -15878,7 +15878,7 @@ z"
           const loadingPrint = ref(false);
 
           const printReciboPdf = () => {
-            if (!isValidForm()) {
+            if (isValidForm()) {
               loadingPrint.value = true;
               printElement(
                 `
@@ -15886,10 +15886,7 @@ z"
               <style>
 								@media print {
 									body, html {
-										margin-left: 0px !important;
-										margin-right: 0px !important;
-										margin-top: 0px !important;
-										margin-bottom: 0px !important;
+										margin: 0 !important;
 										width: 100% !important;
 										height: 100% !important;
 										overflow: visible !important;
@@ -15897,24 +15894,17 @@ z"
 									* {
 										box-sizing: border-box;
 										border: none !important;
-										margin-left: 0px !important;
-										margin-right: 0px !important;
-										margin-top: 0px !important;
-										margin-bottom: 0px !important;
+										margin: 0 !important;
 									}
 									@page {
-										margin:0cm !important;
+										margin:0 !important;
 									}
-									@supports (-webkit-touch-callout: none) { * { -webkit-print-color-adjust: exact !important; } }
 								}
                 @page {
-									margin:0cm !important;
+									margin:0 !important;
                 }
 								body, html {
-									margin-left: 0px !important;
-										margin-right: 0px !important;
-										margin-top: 0px !important;
-										margin-bottom: 0px !important;
+									margin: 0 !important;
 									width: 100% !important;
 									height: 100% !important;
 									overflow: visible !important;
@@ -15922,10 +15912,7 @@ z"
 								* {
 									box-sizing: border-box;
 									border: none !important;
-									margin-left: 0px !important;
-										margin-right: 0px !important;
-										margin-top: 0px !important;
-										margin-bottom: 0px !important;
+									margin: 0 !important;
 								}
                 p{
                   margin: 0;
