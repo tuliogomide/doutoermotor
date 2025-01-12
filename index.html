@@ -15762,7 +15762,10 @@ z"
 				        if (newWindow.document.readyState === 'complete') {
 				            clearInterval(interval);
 				            newWindow.document.body.innerHTML = html;
-				            newWindow.focus();
+										const style = newWindow.document.createElement("style");
+										style.innerHTML = ` @media print { body, html { margin: 0 !important; padding: 0 !important; width: 100% !important; height: 100% !important; overflow: visible !important; } * { border: none !important; margin: 0 !important; padding: 0 !important; } @page { margin: 0 !important; } } `
+				            newWindow.document.head.appendChild(style);
+										newWindow.focus();
 				            setTimeout(() => {
 				                newWindow.print();
 				                newWindow.close();
