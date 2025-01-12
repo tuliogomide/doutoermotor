@@ -15754,7 +15754,31 @@ z"
             }
           };
 
+					const printElementNewTab = (html, title = "Doutor e Motor") => {
+				    const newWindow = window.open("", "_blank");
+				    newWindow.document.title = title;
+
+				    const interval = setInterval(() => {
+				        if (newWindow.document.readyState === 'complete') {
+				            clearInterval(interval);
+				            newWindow.document.body.innerHTML = html;
+				            newWindow.focus();
+				            setTimeout(() => {
+				                newWindow.print();
+				                newWindow.close();
+				            }, 1200);
+				        }
+				    }, 100);
+					};
+
+					const isMobileDevice = () => { return /Mobi|Android/i.test(navigator.userAgent);}
+
+
           const printElement = (html, title = "Doutor e Motor") => {
+						if(isMobileDevice()) {
+							printElementNewTab(html, title)
+						}
+						else {
             const iframe = document.createElement("iframe");
             iframe.style.display = "none";
             document.body.appendChild(iframe);
@@ -15783,6 +15807,7 @@ z"
 						const pri = iframe.contentWindow;
 						pri.document.open();
 						pri.document.close();
+					}
           };
 
 					const msgToastError = ref('')
