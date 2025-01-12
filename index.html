@@ -15884,7 +15884,21 @@ z"
                 `
               <html lang="en">
               <style>
-								@media print { body { margin: 0; padding: 0; } /* Estilos específicos para remover bordas */ * { border: 0 !important; } }
+								@media print {
+									body, html {
+										margin: 0 !important;
+										padding: 0 !important;
+										width: 100% !important;
+										height: 100% !important;
+										overflow: visible !important;
+									}
+									* {
+										border: none !important;
+										margin: 0 !important;
+										padding: 0 !important;
+									}
+									@page { margin: 0 !important; }
+								}
                 @page {
                   margin: 0;
                 }
