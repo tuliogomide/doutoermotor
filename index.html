@@ -15853,7 +15853,7 @@ z"
           const loadingPrint = ref(false);
 
           const printReciboPdf = () => {
-            if (!isValidForm()) {
+            if (isValidForm()) {
               loadingPrint.value = true;
               printElement(
                 `
