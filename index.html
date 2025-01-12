@@ -15630,7 +15630,7 @@ z"
     ></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/maska@3/dist/cdn/vue.js"></script>
-    <script async>
+    <script>
       const { createApp, ref } = Vue;
       const { vMaska } = Maska;
 
@@ -15759,11 +15759,14 @@ z"
             iframe.style.display = "none";
             document.body.appendChild(iframe);
             document.title = title;
-
+						iframe.onload = () => {
             const pri = iframe.contentWindow;
-            pri.document.open();
-            pri.document.write(html);
+            // pri.document.write(html);
             // pri.document.close()
+
+						const priDoc = pri.document;
+						priDoc.body.innerHTML = html;
+
             pri.focus();
             setTimeout(() => {
               pri.print();
@@ -15776,6 +15779,10 @@ z"
                   "Doutor e Motor - Emissão de Termo de Garantia";
               }, 2000);
             };
+						};
+						const pri = iframe.contentWindow;
+						pri.document.open();
+						pri.document.close();
           };
 
 					const msgToastError = ref('')
@@ -15846,7 +15853,7 @@ z"
           const loadingPrint = ref(false);
 
           const printReciboPdf = () => {
-            if (isValidForm()) {
+            if (!isValidForm()) {
               loadingPrint.value = true;
               printElement(
                 `
