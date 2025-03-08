@@ -16067,17 +16067,14 @@ z"
               margin: 0,
               filename: `Termo de Garantia de ${form.value.nome} - ${form.value.dataServico}.pdf`,
 							image: { type: "jpeg", quality: 0.98 },
-          		html2canvas: {
-								scale: 1,
-								windowWidth: 1024,
-								windowHeight: 1080,
-								useCORS: true
-							},
-          		jsPDF: { unit: "mm", format: "a4", orientation: "portrait", compress: true },
+          		html2canvas: { scale: 2 },
+          		jsPDF: { unit: "in", format: "a4", orientation: "portrait", compress: true },
 						};
 
 						// html2pdf(templateHTML(), opt);
-						html2pdf().set(opt).from(templateHTML()).save()
+						setTimeout(function() {
+    					html2pdf().set(opt).from(templateHTML()).save();
+  					}, 1000);
         	};
 
           const printReciboPdf = async () => {
