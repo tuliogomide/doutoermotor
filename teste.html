@@ -15650,7 +15650,7 @@ z"
         directives: { maska: vMaska },
         setup() {
       function generatePDF() {
-        const form = {
+        const form = ref({
           value:{
             nome: null,
             cpf: null,
@@ -15676,7 +15676,7 @@ z"
               },
             ],
           }
-          };
+          });
         const element = document.getElementById("content");
         const opt = {
           margin: 0,
@@ -15866,7 +15866,8 @@ z"
         }
 
         return {
-          generatePDF
+          generatePDF,
+          form
         }
     }
 })
