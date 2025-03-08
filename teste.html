@@ -62,6 +62,16 @@
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
         };
 
+        const itensPdf = () => {
+            let itens = "";
+
+            form.value.itens.forEach((item) => {
+              itens += `<p style="margin-bottom: 5px;"><b>${item.descricao}</b></p><p style="margin-bottom: 20px;"><b>VALOR: R$${item.valor}</b></p>`;
+            });
+
+            return itens;
+          };
+
         const templateHTML = () => (`<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -216,7 +226,7 @@
           <p style="margin-bottom: 20px; margin-top: 20px">
             <b>**Serviços Realizados** </b>
           </p>
-          dfsdf
+          ${itensPdf()}
           <p style="margin-bottom: 20px"><b>**Contato para Suporte:**</b></p>
           <p><b>Telefone: __(62) 9 9556-9542</b></p>
           <p><b>E-mail: doutoremotor7@gmail.com</b></p>
