@@ -15979,7 +15979,7 @@ z"
       }
       .content {
         position: relative;
-				height: 60vh;
+				height: 800px;
       }
       .marca-dagua {
         position: absolute;
@@ -16065,16 +16065,14 @@ z"
 					function onDownloadReciboPDF () {
             const opt = {
               margin: 0,
-              filename: `Termo de Garantia de ${form.value.nome} - ${form.value.dataServico}.pdf`,
+              filename: "meu-documento.pdf",
 							image: { type: "jpeg", quality: 0.98 },
           		html2canvas: { scale: 2 },
-          		jsPDF: { unit: "in", format: "a4", orientation: "portrait", compress: true },
+          		jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
 						};
 
 						// html2pdf(templateHTML(), opt);
-						setTimeout(function() {
-    					html2pdf().set(opt).from(templateHTML()).save();
-  					}, 1000);
+						html2pdf().set(opt).from(templateHTML()).save()
         	};
 
           const printReciboPdf = async () => {
