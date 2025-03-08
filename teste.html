@@ -15679,34 +15679,11 @@ z"
           }};
 
           const fetchCep = async () => {
-            try {
-              const search = form.value.endCep.replace("-", "");
-              if (!isNaN(search) && search.length === 8) {
-                isLoadingCep.value = true;
-                const url = `https://viacep.com.br/ws/${search}/json`;
-                const dados = await fetch(url);
-                const endereco = await dados.json();
-                if (!endereco.hasOwnProperty("erro")) {
-                  form.value.endRua = endereco.logradouro;
-                  form.value.endBairro = endereco.bairro;
-                  form.value.endCidade = endereco.localidade;
-                  form.value.endUf = endereco.uf;
-                }
-              }
-            } catch {
-            } finally {
-              isLoadingCep.value = false;
-            }
+
           };
 
           const itensPdf = () => {
-            let itens = "";
-
-            form.value.itens.forEach((item) => {
-              itens += `<p style="margin-bottom: 5px;"><b>${item.descricao}</b></p><p style="margin-bottom: 20px;"><b>VALOR: R$${item.valor}</b></p>`;
-            });
-
-            return itens;
+            return ""
           };
 
       function onDownloadReciboPDF() {
@@ -15890,33 +15867,15 @@ z"
 
 
         const addNovoItem = () => {
-            form.value.itens = [
-              ...form.value.itens,
-              { descricao: null, valor: null },
-            ];
-            setTimeout(() => {
-              submitButton = document.getElementById(
-                `focus-item-${form.value.itens.length - 1}`
-              );
-              submitButton.focus();
-            }, 200);
+
           };
 
           const printReciboPdf = async () => {
-            // if (isValidForm()) {
-              loadingPrint.value = true;
-              await printElement(
-                templateHTML(),
-                `Termo de Garantia de ${form.value.nome} - ${form.value.dataServico}.pdf`
-              );
-            // }
-            setTimeout(() => {
-              loadingPrint.value = false;
-            }, 3000);
+
           };
 
           const limparFormulario = () => {
-            location.reload();
+
           };
 
         return {
