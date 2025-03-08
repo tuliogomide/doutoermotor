@@ -15230,7 +15230,42 @@ z"
       <div
         class="container border border-dark-subtle p-4 p-md-5 rounded-3 mt-5"
       >
+        <form class="col-sm-12 needs-validation" novalidate>
 
+          <div class="col-12 d-flex justify-content-end mt-4">
+            <button
+              tabindex="-1"
+              class="btn btn-lg btn-outline-primary me-4"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Novo
+            </button>
+            <button
+              @click="printReciboPdf"
+              class="btn btn-lg btn-primary"
+              type="submit"
+            >
+              <span
+                v-if="loadingPrint"
+                class="spinner-border spinner-border-sm"
+                aria-hidden="true"
+              ></span>
+              Imprimir
+            </button>            <button
+              @click="onDownloadReciboPDF"
+              class="btn btn-lg btn-primary ms-3"
+              type="submit"
+            >
+              <span
+                v-if="loadingPrint"
+                class="spinner-border spinner-border-sm"
+                aria-hidden="true"
+              ></span>
+              Baixar
+            </button>
+          </div>
+        </form>
       </div>
       <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div
