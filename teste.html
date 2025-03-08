@@ -59,7 +59,7 @@
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
         };
 
-        html2pdf().set(opt).from(`<!DOCTYPE html>
+        const templateHTML = () => (`<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -223,7 +223,9 @@
     </div>
   </body>
 </html>
-`).save();
+`)
+
+        html2pdf().set(opt).from(templateHTML()).save();
         }
 
         return {
