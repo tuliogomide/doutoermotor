@@ -16068,11 +16068,8 @@ z"
               filename: `Termo de Garantia de ${form.value.nome} - ${form.value.dataServico}.pdf`,
 							image: { type: "jpeg", quality: 0.98 },
           		html2canvas: { scale: 2 },
-          		jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-pagebreak: { before: ['.audit-block', '.new-items-list', '.block-ops:nth-child(3)', '.block-fs:nth-child(3)', '.block-fs:nth-child(8)', '.block-ops:nth-child(8)', '.block-fs:nth-child(13)', '.block-ops:nth-child(13)', '.block-fs:nth-child(18)', '.block-ops:nth-child(18)', '.block-fs:nth-child(23)', '.block-ops:nth-child(23)', '.block-fs:nth-child(28)', '.block-ops:nth-child(28)', '.block-fs:nth-child(32)', '.block-ops:nth-child(32)', '.block-fs:nth-child(37)', '.block-ops:nth-child(37)', '.block-fs:nth-child(42)', '.block-ops:nth-child(42)', '.block-fs:nth-child(47)', '.block-ops:nth-child(47)', '.block-fs:nth-child(52)', '.block-ops:nth-child(52)', '.block-fs:nth-child(57)', '.block-ops:nth-child(57)', '.block-fs:nth-child(62)', '.block-ops:nth-child(62)', '.block-fs:nth-child(67)', '.block-ops:nth-child(67)'] }
-
-					}
-
+          		jsPDF: { unit: "mm", format: "a4", orientation: "portrait", compress: true },
+						};
 
 						// html2pdf(templateHTML(), opt);
 						html2pdf().set(opt).from(templateHTML()).save()
