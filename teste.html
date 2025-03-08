@@ -15652,7 +15652,7 @@ z"
           const isLoadingCep = ref(false);
           const loadingPrint = ref(false);
           const msgToastError = ref("");
-          const form = ref({
+          const form = {value:{
             nome: null,
             cpf: null,
             marcaVeiculo: null,
@@ -15676,7 +15676,7 @@ z"
                 valor: null,
               },
             ],
-          });
+          }};
 
           const fetchCep = async () => {
             try {
