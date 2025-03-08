@@ -16,10 +16,13 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/maska@3/dist/cdn/vue.js"></script>
     <script>
       const { createApp, ref } = Vue;
+      const { vMaska } = Maska;
 
       const app = createApp({
+        directives: { maska: vMaska },
         setup() {
       function generatePDF() {
         console.log('esse aqui passou')
@@ -234,6 +237,34 @@
     }
 })
 app.mount("#app");
+    </script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              event.preventDefault();
+              event.stopPropagation();
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+
+        const toastElList = document.querySelectorAll(".toast");
+        const toastList = [...toastElList].map(
+          (toastEl) => new bootstrap.Toast(toastEl)
+        );
+      })();
     </script>
   </body>
 </html>
