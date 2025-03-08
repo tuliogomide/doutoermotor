@@ -15903,7 +15903,7 @@ z"
 
           const loadingPrint = ref(false);
 
-					const templateHTML = () => `
+					const templateHTML = () => (`
           <html>
               <style>
 			@media print {
@@ -16060,12 +16060,12 @@ z"
       </div>
             </body>
           </html>
-        `
+        `)
 
 					function onDownloadReciboPDF () {
             const opt = {
               margin: 0,
-              filename: "meu-documento.pdf",
+              filename: form.value.nome ? `Termo de Garantia de ${form.value.nome}-${form.value.dataServico}.pdf` : 'termo_de_garantia.pdf',
 							image: { type: "jpeg", quality: 0.98 },
           		html2canvas: { scale: 2 },
           		jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
