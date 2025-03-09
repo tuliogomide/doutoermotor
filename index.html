@@ -16132,8 +16132,11 @@ z"
 						};
 
 						// html2pdf(templateHTML(), opt);
-						await html2pdf().set(opt).from(templateHTML()).save()
-						showForm.value = true
+
+						shtml2pdf().set(opt).from(templateHTML()).save()
+						setTimeout(()=>{
+							showForm.value = true
+						}, 2000)
 						}
         	};
 
