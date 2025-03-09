@@ -19,16 +19,16 @@
   <body>
     <div id="app" class="p-2 p-md-0">
 			<div
+			v-if="showForm"
       style="
         width: 100%;
-				height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         padding-top: 20px;
       "
     >
-      <div 	v-if="showForm" style="width: 200px">
+      <div style="width: 200px">
         <svg
           version="1.1"
           id="Layer_1"
@@ -15674,6 +15674,32 @@ z"
 
 						return day + "/" + month + "/" + year;
 					}
+					const form = ref({
+            nome: 'Tulio Gomide Vieira',
+            cpf: '700.659.011-69',
+            marcaVeiculo: 'Ford',
+            modeloVeiculo: 'Fiesta',
+            anoVeiculo: '2011',
+            placaVeiculo: 'NWN-4444',
+            endCep: '74491-180',
+            endRua: 'amor perfeito',
+            endCidade: "Goiânia",
+            endUf: "GO",
+            endBairro: 'jd cerrado 1',
+            endNumero: '1',
+            endComplemento: null,
+            dataServico: getTodayDate(),
+            prazoGarantia: "3 Meses",
+            termosGarantia:
+              "Qualquer tipo de mal uso ou reparos em outra oficina automaticamente perderá a garantia",
+            itens: [
+              {
+                descricao: 'teste',
+                valor: '200,22',
+              },
+            ],
+          });
+					/*
           const form = ref({
             nome: null,
             cpf: null,
@@ -15699,6 +15725,7 @@ z"
               },
             ],
           });
+					*/
 
           const toUppercase = (campo) => {
             form.value[campo] =
@@ -16094,7 +16121,7 @@ z"
         `)
 
 					async function onDownloadReciboPDF () {
-						//if (isValidForm()) {
+						if (isValidForm()) {
 						showForm.value = false
             const opt = {
               margin: 0,
@@ -16107,7 +16134,7 @@ z"
 						// html2pdf(templateHTML(), opt);
 						await html2pdf().set(opt).from(templateHTML()).save()
 						showForm.value = true
-						//}
+						}
         	};
 
           const printReciboPdf = async () => {
