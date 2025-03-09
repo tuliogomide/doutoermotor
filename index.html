@@ -16114,7 +16114,9 @@ z"
 
 						html2pdf().set(opt).from(templateHTML()).save()
 						}, 500)
-						showForm.value = true
+						setTimeout(()=>{
+							showForm.value = true
+						}, 2000)
 						// }
         	};
 
