@@ -15246,7 +15246,6 @@ z"
                 class="form-control form-control-lg"
                 placeholder="Digite o nome"
                 required
-								@input="String(form.nome)"
               />
               <div class="invalid-feedback">o campo nome é requerido</div>
             </div>
@@ -15720,7 +15719,7 @@ z"
                 `focus-item-${form.value.itens.length - 1}`
               );
               submitButton.focus();
-            }, 5000);
+            }, 200);
           };
 
           const removeItem = (indexItem) => {
@@ -16110,11 +16109,12 @@ z"
 						};
 
 						// html2pdf(templateHTML(), opt);
-
-						html2pdf().set(opt).from(templateHTML()).save()
+						nextTick(() => {
+							html2pdf().set(opt).from(templateHTML()).save()
+						})
 						setTimeout(()=>{
 							showForm.value = true
-						}, 3000)
+						}, 5000)
 						// }
         	};
 
