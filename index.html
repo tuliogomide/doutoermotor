@@ -16103,7 +16103,7 @@ z"
         `)
 
 					async function onDownloadReciboPDF () {
-						// if (isValidForm()) {
+						if (isValidForm()) {
 						showForm.value = false
 						await nextTick(); // Esperar atualização do DOM
 						setTimeout(()=>{
@@ -16122,7 +16122,7 @@ z"
 						setTimeout(()=>{
 							showForm.value = true
 						}, 2000)
-						// }
+						}
         	};
 
           const printReciboPdf = async () => {
