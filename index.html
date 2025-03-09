@@ -18,8 +18,10 @@
   </head>
   <body>
     <div
+			v-if="showForm"
       style="
         width: 100%;
+				height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -15228,6 +15230,7 @@ z"
     </div>
     <div id="app" class="p-2 p-md-0">
       <div
+				v-if="showForm"
         class="container border border-dark-subtle p-4 p-md-5 rounded-3 mt-5"
       >
         <form class="col-sm-12 needs-validation" novalidate>
@@ -15903,6 +15906,8 @@ z"
 
           const loadingPrint = ref(false);
 
+					const showForm = ref(true)
+
 					const templateHTML = () => (`
           <html>
               <style>
@@ -16062,7 +16067,8 @@ z"
           </html>
         `)
 
-					function onDownloadReciboPDF () {
+					async function onDownloadReciboPDF () {
+						showForm.value = false
             const opt = {
               margin: 0,
               filename: form.value.nome ? `Termo de Garantia de ${form.value.nome}-${form.value.dataServico}.pdf` : 'termo_de_garantia.pdf',
@@ -16072,7 +16078,8 @@ z"
 						};
 
 						// html2pdf(templateHTML(), opt);
-						html2pdf().set(opt).from(templateHTML()).save()
+						await html2pdf().set(opt).from(templateHTML()).save()
+						showForm.value = true
         	};
 
           const printReciboPdf = async () => {
@@ -16101,6 +16108,7 @@ z"
             limparFormulario,
             msgToastError,
             onDownloadReciboPDF,
+						showForm
           };
         },
       });
