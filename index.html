@@ -15961,7 +15961,7 @@ z"
 				break-after: auto;
       }
 			.content-pdf {
-					min-height: 1100px;
+					min-height: 1000px;
 			}
       .head {
         position: relative;
@@ -16127,13 +16127,13 @@ z"
 
           const printReciboPdf = async () => {
 						await nextTick(); // Esperar atualização do DOM
-						if (isValidForm()) {
+						//if (isValidForm()) {
               loadingPrint.value = true;
               await printElement(
                 templateHTML(),
                 `Termo de Garantia de ${form.value.nome} - ${form.value.dataServico}.pdf`
               );
-						}
+						//}
             setTimeout(() => {
               loadingPrint.value = false;
             }, 3000);
