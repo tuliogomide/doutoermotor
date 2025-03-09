@@ -15312,7 +15312,6 @@ z"
                 class="form-control form-control-lg"
                 placeholder="Placa"
                 required
-                @input="toUppercase('placaVeiculo')"
               />
               <div class="invalid-feedback">campo requerido</div>
             </div>
@@ -15380,7 +15379,6 @@ z"
                 class="form-control form-control-lg"
                 placeholder="UF"
                 required
-                @input="toUppercase('endUf')"
               />
               <div class="invalid-feedback">requerido</div>
             </div>
@@ -15481,7 +15479,70 @@ z"
               </div>
             </div>
           </div>
-
+          <div
+            v-for="(item, index) in form.itens"
+            class="row mt-4 align-items-center"
+          >
+            <label
+              for="colFormLabelLg"
+              class="col-sm-3 col-form-label col-form-label-lg"
+              >Item {{ index+1 }}</label
+            >
+            <div class="col-sm-5">
+              <input
+                :id="`focus-item-${index}`"
+                v-model="item.descricao"
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="Digite a descrição"
+                required
+              />
+              <div class="invalid-feedback">
+                o campo descrição do item é requerido
+              </div>
+            </div>
+            <div
+              class="mt-4 mt-md-0"
+              :class="index !== 0 ? 'col-sm-3' : 'col-sm-4'"
+            >
+              <input
+                v-model="item.valor"
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="Digite o valor"
+                required
+                @blur="formatMoney(index)"
+              />
+              <div class="invalid-feedback">
+                o campo valor do item é requerido
+              </div>
+            </div>
+            <div v-if="index !== 0" class="col-sm-1 d-flex justify-content-end">
+              <button
+                tabindex="-1"
+                @click="removeItem(index)"
+                type="button"
+                class="btn btn-light d-flex align-items-center p-3"
+              >
+                <span class="material-symbols-outlined"> delete </span>
+              </button>
+            </div>
+          </div>
+          <div
+            class="d-flex align-items-center col-sm-12 justify-content-end"
+            style="cursor: pointer"
+          >
+            <button
+              @click="addNovoItem"
+              type="button"
+              class="btn btn-light d-flex align-items-center p-3 mt-4"
+            >
+              <span class="me-2">Adicionar novo item</span>
+              <span class="material-symbols-outlined">
+                control_point_duplicate
+              </span>
+            </button>
+          </div>
           <div class="col-12 d-flex justify-content-end mt-4">
             <button
               tabindex="-1"
