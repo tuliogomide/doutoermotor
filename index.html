@@ -15677,18 +15677,18 @@ z"
 					}
 
           const form = ref({
-            nome: 'Tulio Gomide Vieira',
-            inscricao: '700.659.011-69',
-            marcaVeiculo: 'Ford',
-            modeloVeiculo: 'Fiesta',
-            anoVeiculo: '2011',
-            placaVeiculo: 'NWN-4444',
-            endCep: '74491-180',
-            endRua: 'amor perfeito',
+            nome: null,
+            inscricaos: null,
+            marcaVeiculo: null,
+            modeloVeiculo: null,
+            anoVeiculo: null,
+            placaVeiculo: null,
+            endCep: null,
+            endRua: null,
             endCidade: "Goiânia",
             endUf: "GO",
-            endBairro: 'jd cerrado 1',
-            endNumero: '1',
+            endBairro: null,
+            endNumero: null,
             endComplemento: null,
             dataServico: getTodayDate(),
             prazoGarantia: "3 Meses",
@@ -15696,17 +15696,9 @@ z"
               "Qualquer tipo de mal uso ou reparos em outra oficina automaticamente perderá a garantia",
             itens: [
               {
-                descricao: 'teste',
-                valor: '200,22',
+                descricao: null,
+                valor: null,
               },
-							{
-                descricao: 'teste',
-                valor: '200,22',
-              },
-							{
-                descricao: 'teste',
-                valor: '200,22',
-              }
             ],
           });
 
@@ -15727,7 +15719,7 @@ z"
                 `focus-item-${form.value.itens.length - 1}`
               );
               submitButton.focus();
-            }, 200);
+            }, 5000);
           };
 
           const removeItem = (indexItem) => {
