@@ -16099,6 +16099,7 @@ z"
 
 					async function onDownloadReciboPDF () {
 						// if (isValidForm()) {
+						await nextTick(); // Esperar atualização do DOM
 						showForm.value = false
             const opt = {
               margin: 0,
@@ -16109,12 +16110,11 @@ z"
 						};
 
 						// html2pdf(templateHTML(), opt);
-						nextTick(() => {
-							html2pdf().set(opt).from(templateHTML()).save()
-						})
+
+						html2pdf().set(opt).from(templateHTML()).save()
 						setTimeout(()=>{
 							showForm.value = true
-						}, 5000)
+						}, 3000)
 						// }
         	};
 
