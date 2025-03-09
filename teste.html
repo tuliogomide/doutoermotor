@@ -18,7 +18,6 @@
   </head>
   <body>
     <div
-      class="form-termo"
       style="
         width: 100%;
         display: flex;
@@ -15386,102 +15385,6 @@ z"
               <div class="invalid-feedback">requerido</div>
             </div>
           </div>
-          <div class="row mt-4 align-items-center">
-            <label
-              for="colFormLabelLg"
-              class="col-sm-3 col-form-label col-form-label-lg"
-              >&nbsp;</label
-            >
-            <div class="col-sm-3">
-              <input
-                v-model="form.endBairro"
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Bairro"
-                required
-              />
-              <div class="invalid-feedback">o campo bairro é requerido</div>
-            </div>
-            <div class="col-sm-3 mt-4 mt-md-0">
-              <input
-                v-model="form.endNumero"
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Número"
-                maxlength="6"
-                required
-              />
-              <div class="invalid-feedback">o campo número é requerido</div>
-            </div>
-            <div class="col-sm-3 mt-4 mt-md-0">
-              <input
-                v-model="form.endComplemento"
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Complemento"
-              />
-            </div>
-          </div>
-          <div class="row mt-4 align-items-center">
-            <label
-              for="colFormLabelLg"
-              class="col-sm-3 col-form-label col-form-label-lg"
-              >Data da Compra/Serviço</label
-            >
-            <div class="col-sm-9">
-              <input
-                v-model="form.dataServico"
-                v-maska="'##/##/####'"
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Digite a data"
-                required
-              />
-              <div class="invalid-feedback">
-                o campo data da compra é requerido
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4 align-items-center">
-            <label
-              for="colFormLabelLg"
-              class="col-sm-3 col-form-label col-form-label-lg"
-              >Prazo da Garantia</label
-            >
-            <div class="col-sm-9">
-              <input
-                v-model="form.prazoGarantia"
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Digite o tempo da garantia"
-                value="3 Meses"
-                required
-              />
-              <div class="invalid-feedback">
-                o campo prazo de garantia é requerido
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4 align-items-center">
-            <label
-              for="colFormLabelLg"
-              class="col-sm-3 col-form-label col-form-label-lg"
-              >Termos da Garantia</label
-            >
-            <div class="col-sm-9">
-              <textarea
-                v-model="form.termosGarantia"
-                class="form-control form-control-lg"
-                id="exampleFormControlTextarea1"
-                rows="3"
-                required
-              >
-              </textarea>
-              <div class="invalid-feedback">
-                o campo termos da garantia é requerido
-              </div>
-            </div>
-          </div>
           <div
             v-for="(item, index) in form.itens"
             class="row mt-4 align-items-center"
@@ -15732,9 +15635,6 @@ z"
       @media print {
         margin: 0 !important;
         padding: 0 !important;
-      }
-      .form-termo {
-        display: none;
       }
       @page {
         margin: 0 !important;
