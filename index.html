@@ -19,7 +19,7 @@
   <body>
     <div id="app" class="p-2 p-md-0">
 			<div
-			v-if="showForm"
+			v-show="showForm"
       style="
         width: 100%;
         display: flex;
@@ -15229,7 +15229,7 @@ z"
       </div>
     </div>
       <div
-				v-if="showForm"
+				v-show="showForm"
         class="container border border-dark-subtle p-4 p-md-5 rounded-3 mt-5"
       >
         <form class="col-sm-12 needs-validation" novalidate>
@@ -16126,6 +16126,7 @@ z"
         	};
 
           const printReciboPdf = async () => {
+						await nextTick(); // Esperar atualização do DOM
 						if (isValidForm()) {
               loadingPrint.value = true;
               await printElement(
