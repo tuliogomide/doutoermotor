@@ -15654,6 +15654,27 @@ z"
         directives: { maska: vMaska },
         setup() {
           const isLoadingCep = ref(false);
+					const getTodayDate = () => {
+						let todayDate = new Date();
+						let day = todayDate.getDate();
+						let month = todayDate.getMonth();
+						let year = todayDate.getFullYear();
+
+						if (day < 10) {
+    					day = '0' + day;
+						}
+
+						if (month < 10) {
+    					month = `0${month+1}`;
+						}
+						else {
+							month += 1;
+						}
+
+						console.log(month)
+
+						return day + "/" + month + "/" + year;
+					}
           const form = ref({
             nome: null,
             cpf: null,
@@ -15668,7 +15689,7 @@ z"
             endBairro: null,
             endNumero: null,
             endComplemento: null,
-            dataServico: null,
+            dataServico: getTodayDate(),
             prazoGarantia: "3 Meses",
             termosGarantia:
               "Qualquer tipo de mal uso ou reparos em outra oficina automaticamente perderá a garantia",
@@ -16068,6 +16089,7 @@ z"
         `)
 
 					async function onDownloadReciboPDF () {
+						if (isValidForm()) {
 						showForm.value = false
             const opt = {
               margin: 0,
@@ -16080,16 +16102,17 @@ z"
 						// html2pdf(templateHTML(), opt);
 						await html2pdf().set(opt).from(templateHTML()).save()
 						showForm.value = true
+						}
         	};
 
           const printReciboPdf = async () => {
-            // if (isValidForm()) {
+						if (isValidForm()) {
               loadingPrint.value = true;
               await printElement(
                 templateHTML(),
                 `Termo de Garantia de ${form.value.nome} - ${form.value.dataServico}.pdf`
               );
-            // }
+						}
             setTimeout(() => {
               loadingPrint.value = false;
             }, 3000);
