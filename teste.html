@@ -15317,6 +15317,32 @@ z"
               <div class="invalid-feedback">campo requerido</div>
             </div>
           </div>
+          <div class="row mt-4 align-items-center">
+            <label
+              for="colFormLabelLg"
+              class="col-sm-3 col-form-label col-form-label-lg"
+              >CEP</label
+            >
+            <div class="col-sm-9">
+              <div class="d-flex align-items-center">
+                <input
+                  v-model="form.endCep"
+                  v-maska="'#####-###'"
+                  type="text"
+                  class="form-control form-control-lg"
+                  placeholder="Digite o CEP"
+                  @input="fetchCep"
+                />
+                <div
+                  v-if="isLoadingCep"
+                  class="spinner-border ms-4"
+                  role="status"
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <div
             v-for="(item, index) in form.itens"
             class="row mt-4 align-items-center"
