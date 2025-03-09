@@ -15930,7 +15930,13 @@ z"
 					const showForm = ref(true)
 
 					const templateHTML = () => (`
+					<!DOCTYPE html>
           <html>
+					<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo HTML2PDF com Imagens</title>
+  </head>
               <style>
 			@media print {
         margin: 0 !important;
@@ -16089,7 +16095,7 @@ z"
         `)
 
 					async function onDownloadReciboPDF () {
-						if (isValidForm()) {
+						//if (isValidForm()) {
 						showForm.value = false
             const opt = {
               margin: 0,
@@ -16102,7 +16108,7 @@ z"
 						// html2pdf(templateHTML(), opt);
 						await html2pdf().set(opt).from(templateHTML()).save()
 						showForm.value = true
-						}
+						// }
         	};
 
           const printReciboPdf = async () => {
